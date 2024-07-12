@@ -14,12 +14,12 @@ There are many independent platforms dedicated to providing reviews for various 
 
 To open the webpage, click this link here to go directly!
 
-[Project 2 (Replace with new name)](https://robscafe.github.io/p2/)
+[Project 2 (Replace with new name)](https://github.com/robscafe433/p2.git)
 
 _OR_ Copy this link to paste it into a browser.
 
 ```md
-https://robscafe.github.io/p2/
+https://github.com/robscafe433/p2.git
 ```
 
 ![screenshot](.png)
