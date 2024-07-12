@@ -1,3 +1,5 @@
+<<
+=======
 <div align='center'>
   
 # Project 2 (Replace with new name)
@@ -52,3 +54,4 @@ NPM Packages Used:
 ## License
 
 MIT License
+>>>>>>> 25f85f005613577e4c304adc8bbaf4ad7b56bee7
