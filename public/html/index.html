@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
     <link rel="stylesheet" href="./public/css/style.css" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <!--Name of Website-->
     <title>navbar and login btn</title>
 </head>
@@ -113,12 +114,74 @@
             </form>
         </div>
     </div>
-
-
-
-
-
-
+<!-- FORM ELEMENTS: MOVE WHERE NEEDED -->
+  <div class="bg-info text-light px-4 py-5 mb-5">
+    <div class="container text-center">
+    <h1>Search</h1>
+      <input type="text" class="form-control" id="skill-name" /><br>
+      <div class="py-3">
+        <button type="submit" value="Submit" class="btn btn-info">
+        Submit
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
+<!-- END FORM ELEMENTS: MOVE WHERE NEEDED -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- jQuery UI <script> tag -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+const formEl = $('#skills-form');
+const nameInputEl = $('#skill-name');
+const skillsListEl = $('#skills-list');
+
+const printSkills = function (name) {
+  const listEl = $('<li>');
+  const listDetail = name.concat(' on ');
+  listEl.addClass('list-group-item').text(listDetail);
+  listEl.appendTo(skillsListEl);
+};
+
+const handleFormSubmit = function (event) {
+  event.preventDefault();
+
+  const nameInput = nameInputEl.val();
+
+  if (!nameInput) {
+    console.log('Please type the title of a book or other media to continue...');
+    return;
+  }
+
+  printSkills(nameInput);
+
+  // resets form
+  nameInputEl.val('');
+};
+
+formEl.on('submit', handleFormSubmit);
+
+// Autocomplete widget
+$(function () {
+  const skillNames = [
+    //replace with database populated entries... eventually...
+    'Book1',
+    'Book2',
+    'Book3',
+    'Book4',
+    'Book5',
+    'Book6',
+  ];
+  $('#skill-name').autocomplete({
+    source: skillNames,
+  });
+});
+</script>
+
+
 
 </html>
+
+
+
