@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Pop Culture Critique</title>
+ 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" /> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 </head>
 
 <body>
@@ -20,7 +23,6 @@
             <a href="home">Contact</a>
             <button class="login-btn">Login</button>
         </nav>
-
     </header>
 
     <div class="pop-up-login">
@@ -29,7 +31,6 @@
         </span>
         <div class="login-area login">
             <h2>Login</h2>
-
             <form action="for-input">
                 <div class="input-area">
                     <span class="icon">
@@ -39,7 +40,6 @@
                     <label>Email</label>
                 </div>
 
-
                 <div class="input-area">
                     <span class="icon">
                         <i class='bx bxs-lock-alt'></i>
@@ -48,21 +48,16 @@
                     <label>Password</label>
                 </div>
 
-
                 <div class="remember-forgot">
                     <label><input type="checkbox">
                         Remember me</label>
-
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <div class="login-create-account">
                     <p>Don't have an account? <a href="lr" class="create-account-link">Create account</a></p>
                 </div>
             </form>
-
-
         </div>
-
 
         <div class="login-area create-account">
             <h2>Create account</h2>
@@ -92,19 +87,73 @@
 
                 <button type="submit" class="btn">Create account</button>
             </form>
-
-
         </div>
     </div>
-
-
-
-
-
-
-
-
-    <script src="../js/script.js"></script>
+  
+<!-- FORM ELEMENTS: MOVE WHERE NEEDED -->
+  <div class="bg-info text-light px-4 py-5 mb-5">
+    <div class="container text-center">
+    <h1>Search</h1>
+      <input type="text" class="form-control" id="skill-name" /><br>
+      <div class="py-3">
+        <button type="submit" value="Submit" class="btn btn-info">
+        Submit
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
+<!-- END FORM ELEMENTS: MOVE WHERE NEEDED -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- jQuery UI <script> tag -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+const formEl = $('#skills-form');
+const nameInputEl = $('#skill-name');
+const skillsListEl = $('#skills-list');
+
+const printSkills = function (name) {
+  const listEl = $('<li>');
+  const listDetail = name.concat(' on ');
+  listEl.addClass('list-group-item').text(listDetail);
+  listEl.appendTo(skillsListEl);
+};
+
+const handleFormSubmit = function (event) {
+  event.preventDefault();
+
+  const nameInput = nameInputEl.val();
+
+  if (!nameInput) {
+    console.log('Please type the title of a book or other media to continue...');
+    return;
+  }
+
+  printSkills(nameInput);
+
+  // resets form
+  nameInputEl.val('');
+};
+
+formEl.on('submit', handleFormSubmit);
+
+// Autocomplete widget
+$(function () {
+  const skillNames = [
+    //replace with database populated entries... eventually...
+    'Book1',
+    'Book2',
+    'Book3',
+    'Book4',
+    'Book5',
+    'Book6',
+  ];
+  $('#skill-name').autocomplete({
+    source: skillNames,
+  });
+});
+</script>
 
 </html>
+
