@@ -99,70 +99,79 @@
       </div>
     </div>
 
-    <!-- FORM ELEMENTS: MOVE WHERE NEEDED -->
-    <div class="bg-info text-light px-4 py-5 mb-5">
-      <div class="container text-center">
-        <h1>Search</h1>
-        <input type="text" class="form-control" id="skill-name" /><br />
-        <div class="py-3">
-          <button type="submit" value="Submit" class="btn btn-info">
-            Submit
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>
-  <!-- END FORM ELEMENTS: MOVE WHERE NEEDED -->
+    
+    <form id="searchform" class="search2" method="get"/>
+<input class="search2" id="book-name" type="text" name="search" size="10" maxlength="255"/>
+<div class="py-3">
+    <button type="submit" value="Submit" class="btn btn-info">
+    Submit
+    </button>
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <!-- jQuery UI <script> tag -->
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-    const formEl = $("#skills-form");
-    const nameInputEl = $("#skill-name");
-    const skillsListEl = $("#skills-list");
 
-    const printSkills = function (name) {
-      const listEl = $("<li>");
-      const listDetail = name.concat(" on ");
-      listEl.addClass("list-group-item").text(listDetail);
-      listEl.appendTo(skillsListEl);
-    };
 
-    const handleFormSubmit = function (event) {
-      event.preventDefault();
+<script type="text/javascript">
+    document.getElementById('searchform').onsubmit = function() {
+        window.location = 'https://robscafe433.github.io/Pop-Culture-Critic/API/Book/' + document.getElementById('book-name').value;
+        return false;
+    }
+</script>
+<!-- //END SEARCH -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- jQuery UI <script> tag -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-      const nameInput = nameInputEl.val();
+<script>
+const formEl = $('#skills-form');
+const nameInputEl = $('#book-name');
+const skillsListEl = $('#skills-list');
 
-      if (!nameInput) {
-        console.log(
-          "Please type the title of a book or other media to continue..."
-        );
-        return;
-      }
+const printSkills = function (name) {
+  const listEl = $('<li>');
+  const listDetail = name.concat(' on ');
+  listEl.addClass('list-group-item').text(listDetail);
+  listEl.appendTo(skillsListEl);
+};
 
-      printSkills(nameInput);
+const handleFormSubmit = function (event) {
+  event.preventDefault();
 
-      // resets form
-      nameInputEl.val("");
-    };
+  const nameInput = nameInputEl.val();
 
-    formEl.on("submit", handleFormSubmit);
+  if (!nameInput) {
+    console.log('Please type the title of a book or other media to continue...');
+    return;
+  }
 
-    // Autocomplete widget
-    $(function () {
-      const skillNames = [
-        //replace with database populated entries... eventually...
-        "Book1",
-        "Book2",
-        "Book3",
-        "Book4",
-        "Book5",
-        "Book6",
-      ];
-      $("#skill-name").autocomplete({
-        source: skillNames,
-      });
-    });
-  </script>
+  printSkills(nameInput);
+
+  // resets form
+  nameInputEl.val('');
+};
+
+formEl.on('submit', handleFormSubmit);
+
+// OLD (working) AUTOCOMPLETE FUNCTION
+$(function () {
+  const skillNames = [
+    //replace with database populated entries... eventually...
+    'Book1',
+    'Book2',
+    'Book3',
+    'Book4',
+    'Book5',
+    'Book6',
+  ];
+  $('#book-name').autocomplete({
+    source: skillNames,
+  });
+});
+
+// New (non working) Autocomplete Widget
+// $(function () {
+//   $('#book-name').autocomplete({
+//     source: "terms.json"
+//   });
+// });
+
+    </script>
 </html>
