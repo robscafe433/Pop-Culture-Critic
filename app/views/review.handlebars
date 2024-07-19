@@ -1,9 +1,13 @@
-<div class="review">
-  {{> userMessage tagName="h1" }}
-
-  <h1>Comments</h1>
-
-  {{#each comments}}
-    {{> userMessage tagName="h2" }}
-  {{/each}}
-</div>
+<section id="review-template"
+    {{#each reviews}}
+    <div class="review">
+        <h2>{{title}}</h2>
+        <p><strong>Rating:</strong> {{rating}}</p>
+        <p>{{content}}</p>
+        <p><em>- {{author}}</em></p>
+        {{#if (eq rating 5)}}
+        <p><strong>Highly recommended!</strong></p>
+        {{/if}}
+    </div>
+    {{/each}}
+</section>
