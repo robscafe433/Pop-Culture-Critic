@@ -49,15 +49,15 @@
       const cardEl = document.createElement("div");
       const nameEl = document.createElement("div");
       const yearEl = document.createElement("div");
-      //const pageEl = document.createElement("div");
+      const pageEl = document.createElement("div");
 
       nameEl.textContent = `Author: ${authorName}`;
       yearEl.textContent = `Publishing Date: ${publishingYear}`;
-      //pageEl.textContent = `Page Count: ${pages}`;
+      pageEl.textContent = `Page Count: ${pages}`;
 
       cardEl.appendChild(nameEl);
       cardEl.appendChild(yearEl);
-      //cardEl.appendChild(pageEl);
+      cardEl.appendChild(pageEl);
       rootEl.appendChild(cardEl);
     };
     getData();
