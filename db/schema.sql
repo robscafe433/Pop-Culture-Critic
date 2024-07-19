@@ -21,10 +21,7 @@ CREATE TABLE items (
   rating INTEGER,
   paperback VARCHAR(9),
   edition VARCHAR(50) NOT NULL,
-  novelization VARCHAR(30),
   director VARCHAR(30),
-  adaption VARCHAR(30),
-  soundtrack VARCHAR(30),
   genre VARCHAR(30) NOT NULL,
   year INTEGER,
   usersubmitted INTEGER
@@ -48,4 +45,24 @@ CREATE TABLE localavailability (
     FOREIGN KEY (item_id)
     REFERENCES items(id)
     ON DELETE SET NULL
+);
+
+CREATE TABLE othermedia (
+    id SERIAL PRIMARY KEY,
+    item_id INT,
+    movie_adaption VARCHAR(50),
+    tvshow VARCHAR(50),
+    novel VARCHAR(50),
+    soundtrack VARCHAR(50),
+    audiobook VARCHAR(50),
+    FOREIGN KEY (item_id)
+    REFERENCES items(id)
+    ON DELETE SET NULL
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username  VARCHAR(20) UNIQUE,
+    email  VARCHAR(30) UNIQUE,
+    password  VARCHAR,
 );
