@@ -2,6 +2,17 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 
+////////////-rs
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
+var crypto = require('crypto');
+var db = require('./db/authorization');
+
+////////////end-rs
+
+// adding routes to server.js  ***********************rs
+var authRouter = require('./routes/authorization');
+
 const helpers = require('./util/helpers');
 
 // Importing Express.js from PORT 5500
@@ -17,16 +28,14 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //f for static files from public folder
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public/'))); //changed this *********-rs
+//  previously was missing '/public' // app.use(express.static('public')); -rs
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // require('./controllers/homeController')(app);
 // require('./controllers/index')(app);
-
-// adding routes to server.js  ***********************rs
-var authRouter = require('./routes/authorization');
 
 app.use('/', authRouter); //************************rs
 
