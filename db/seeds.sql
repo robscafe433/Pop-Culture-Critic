@@ -1,13 +1,13 @@
-INSERT INTO items (type, category, item_name, collection, artist, composer, distributor, isbn, author, publisher, pagecount, length, availability, rating, paperback, edition, adaption, novelization, director, soundtrack, genre, year) 
+INSERT INTO items (type, category, item_name, collection, artist, composer, distributor, isbn, author, publisher, pagecount, length, availability, rating, paperback, edition, director, genre, year) 
 VALUES
 --//prepolulate with sample books below:
-('Book', 'Non Fiction', 'HelloBook!', 'The Hello World Series', NULL, NULL, 'DistroUSA', 1234, 'Mr. McAuthor', 'LJN Books', '42', NULL, 'SpringField Library', '5', 'Hardcover', 'First Edition', 'The Life and Times of McAuthor', NULL, NULL, 'Sounds of Hello World', 'Horror', '2025'),
+('Book', 'Non Fiction', 'HelloBook!', 'The Hello World Series', NULL, NULL, 'DistroUSA', 1234, 'Mr. McAuthor', 'LJN Books', '42', NULL, 'SpringField Library', '5', 'Hardcover', 'First Edition', NULL, 'Horror', '2025'),
 --//prepolulate with sample movies/shows/videos below:
-('Video', 'Movie', 'Super Karate Monkey Death Car', NULL, NULL, NULL, 'MGM', NULL, NULL, 'View Askew', NULL, 142, 'Blockbuster Video', '2', NULL, 'Two Disc Collectors Edition', NULL, 'I am America and so can YOU', 'Kevin James', 'SKMDC Official Soundtrack', 'Family', '1992'),
+('Video', 'Movie', 'Super Karate Monkey Death Car', NULL, NULL, NULL, 'MGM', NULL, NULL, 'View Askew', NULL, 142, 'Blockbuster Video', '2', NULL, 'Two Disc Collectors Edition', 'Kevin James', 'Family', '1992'),
 -- --//prepolulate with sample music below:
-('Music', 'Easy Listening', 'Sounds of Nature', 'Soundscapes', NULL, NULL, 'Ramen Fuel', NULL, NULL, 'Not Null Records', NULL, 34, 'Tower Records', '4', NULL, 'Standard Edition', NULL, NULL, NULL, NULL, 'Nature', '2004'),
+('Music', 'Easy Listening', 'Sounds of Nature', 'Soundscapes', NULL, NULL, 'Ramen Fuel', NULL, NULL, 'Not Null Records', NULL, 34, 'Tower Records', '4', NULL, 'Standard Edition', NULL, 'Nature', '2004'),
 --//prepolulate with sample games below:
-('Game', 'Digital Downloads', 'The Elder Scrolls V 2', 'TES', NULL, NULL, 'Bethesda', NULL, 'Todd', 'Microsoft', NULL, NULL, 'FuncoLand', '1', NULL, 'Extra Special Edition', 'Game of Thrones', 'A Song of Ice and Fire', NULL, NULL, 'Adventure', '3000')
+('Game', 'Digital Downloads', 'The Elder Scrolls V 2', 'TES', NULL, NULL, 'Bethesda', NULL, 'Todd', 'Microsoft', NULL, NULL, 'FuncoLand', '1', NULL, 'Extra Special Edition', NULL, 'Adventure', '3000')
 ;
 
 INSERT INTO reviews (item_id, review)
@@ -32,5 +32,9 @@ VALUES  (1, 'Blockbuster Video', 42),
         (1, 'Hollywood Video', 4),
         (2, 'RST Video', 8),
         (3, 'Your Local Library', 4);
-        
-       
+
+INSERT INTO othermedia (item_id, movie_adaption, tvshow, novel, soundtrack, audiobook)
+VALUES  (1, 'The Book of Mormon: The Movie', NULL, '"The Book of Mormon: The Movie" The Novelization', 'Original Broadway Recording: The Book of Mormon', 'The Book of Mormon: as read by William Shatner'),
+        (2, NULL, NULL, NULL, 'I am America and so can You', 'Super Karate Monkey Death Car - The Audio Book'),
+        (3, 'Planet Earth', NULL, 'The Big Bang', NULL, NULL),
+        (4, 'Lord of the Rings', 'Game of Thrones', 'A Song of Ice and Fire', 'Sounds of Hesitation', 'Skyrim - The Audio Book, read by Amazon`s Alexa');
