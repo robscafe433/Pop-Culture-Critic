@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./routes/homeRoutes")(app);
-require("./routes/index")(app);
+require("./controllers/homeController")(app);
+require("./controllers/index")(app);
 
 app.listen(PORT, () => console.log(`Express server listening on port 5501`));
