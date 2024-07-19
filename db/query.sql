@@ -6,10 +6,8 @@
 -- ORDER BY items.item_name;
 
 -- Item Detail Only (Currently Book Oriented Query// items will eventually be split up into multiple tables)
-SELECT items.item_name, items.type, category, isbn, author, publisher, pagecount, length, rating, paperback, edition, adaption, director, genre, year
-FROM reviews
-LEFT JOIN items
-ON reviews.item_id = items.id
+SELECT items.item_name, items.type, category, isbn, author, publisher, pagecount, length, rating, paperback, edition, director, genre, year
+FROM items
 ORDER BY items.item_name;
 
 -- Name and Reviews
@@ -24,4 +22,11 @@ SELECT items.item_name, location_name, stock
 FROM localavailability
 LEFT JOIN items
 ON localavailability.item_id = items.id
+ORDER BY items.item_name;
+
+-- Related Media
+SELECT items.item_name, items.type, movie_adaption, tvshow, novel, soundtrack, audiobook
+FROM othermedia
+LEFT JOIN items
+ON othermedia.item_id = items.id
 ORDER BY items.item_name;
