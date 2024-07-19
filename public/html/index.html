@@ -3,117 +3,93 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--CSS-->
-    <link rel="stylesheet" href="./public/css/style.css" />
+  
+    <title>Pop Culture Critique</title>
+ 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" /> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>    
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-    <!--Name of Website-->
-    <title>navbar and login btn</title>
 </head>
 
-<body background="./public/images/background.png">
+<body>
+    <header>
+        <img class="quill" src="../images/logo.png" alt="" width="300px">
+        <nav class="navigation-bar">
+            <a href="home">Home</a>
+            <a href="home">About</a>
+            <a href="home">Contact</a>
+            <button class="login-btn">Login</button>
+        </nav>
+    </header>
 
+    <div class="pop-up-login">
+        <span class="close-btn">
+            <i class='bx bx-x'></i>
+        </span>
+        <div class="login-area login">
+            <h2>Login</h2>
+            <form action="for-input">
+                <div class="input-area">
+                    <span class="icon">
+                        <i class='bx bxs-envelope'></i>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+                <div class="input-area">
+                    <span class="icon">
+                        <i class='bx bxs-lock-alt'></i>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+                <div class="remember-forgot">
+                    <label><input type="checkbox">
+                        Remember me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-create-account">
+                    <p>Don't have an account? <a href="lr" class="create-account-link">Create account</a></p>
+                </div>
+            </form>
+        </div>
 
-        .topnav {
-            overflow: hidden;
-            background-color: beige;
-        }
+        <div class="login-area create-account">
+            <h2>Create account</h2>
 
-        .topnav a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 20px 20px;
-            text-decoration: none;
-            font-size: 20px;
-        }
+            <form action="for-input">
+                <div class="input-area">
+                    <span class="icon">
+                        <i class='bx bxs-user'></i>
+                    </span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-area">
+                    <span class="icon">
+                        <i class='bx bxs-envelope'></i>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-area">
+                    <span class="icon">
+                        <i class='bx bxs-lock-alt'></i>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: black;
-            color: white;
-        }
-
-        .topnav .login-container {
-            float: right;
-        }
-
-        .topnav input[type=text] {
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 15px;
-            border: none;
-            width: 220px;
-        }
-
-        .topnav .login-container button {
-            float: right;
-            padding: 9px 20px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background-color: black;
-            color: white;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .topnav .login-container button:hover {
-            background-color: silver;
-        }
-
-        @media screen and (max-width: 600px) {
-            .topnav .login-container {
-                float: none;
-            }
-
-            .topnav a,
-            .topnav input[type=text],
-            .topnav .login-container button {
-                float: none;
-                display: block;
-                text-align: left;
-                width: 100%;
-                margin: 0;
-                padding: 14px;
-            }
-
-            .topnav input[type=text] {
-                border: 1px solid #ccc;
-            }
-        }
-    </style>
-
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <div class="login-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Username" name="username">
-                <i class='bx bxs-user'></i>
-                <input type="text" placeholder="Password" name="psw">
-                <i class='bx bxs-lock-alt'></i>
-                <button type="submit">Login</button>
+                <button type="submit" class="btn">Create account</button>
             </form>
         </div>
     </div>
+  
 <!-- FORM ELEMENTS: MOVE WHERE NEEDED -->
   <div class="bg-info text-light px-4 py-5 mb-5">
     <div class="container text-center">
@@ -179,9 +155,5 @@ $(function () {
 });
 </script>
 
-
-
 </html>
-
-
 
