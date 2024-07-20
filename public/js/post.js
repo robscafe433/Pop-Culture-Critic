@@ -2,7 +2,7 @@ const editBtnHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       console.log('Successful')
       const id = event.target.getAttribute('data-id');
-      const response = await fetch(`/api/posts/${id}`, {
+      const response = await fetch(`/API/Book/${id}`, {
         method: 'GET'
       })
       if (!response.ok){
@@ -30,7 +30,7 @@ const editBtnHandler = async (event) => {
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').value;
   
-        const response = await fetch(`/api/posts/editSave/${id}`,
+        const response = await fetch(`/API/Book/review/editSave/${id}`,
          {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -38,7 +38,7 @@ const editBtnHandler = async (event) => {
         });
   
         if (response.ok) {
-          console.log('Post updated successfully!');
+          console.log('Review updated successfully!');
           window.location.reload();
         } else {
           console.error('Failed to update post!');
@@ -53,7 +53,7 @@ const editBtnHandler = async (event) => {
       console.log('Successful')
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/posts/delete/${id}`, {
+      const response = await fetch(`/API/Book/reviews/delete/${id}`, {
         method: 'DELETE',
       });
   
@@ -61,7 +61,7 @@ const editBtnHandler = async (event) => {
         console.log('Successful')
         document.location.replace('/dashboard');
       } else {
-        alert('Failed to delete post');
+        alert('Failed to delete review');
       }
     }
   };
@@ -76,17 +76,17 @@ const editBtnHandler = async (event) => {
     const content = document.querySelector('#content').value.trim();
   
     if (title && content) {
-      const response = await fetch('/api/posts/new', {
+      const response = await fetch('/API/Book/new', {
         method: 'POST',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        console.log('Post created successfully!');
+        console.log('Review created successfully!');
         document.location.replace('/')
       } else {
-        console.error('Failed to create post!');
+        console.error('Failed to create review!');
       }
     }
   });
