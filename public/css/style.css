@@ -11,11 +11,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: white;
-  background-size: cover;
-  background-position: center;
+  background-color: black;
 }
 
+/* Here is the CSS for the header background where the navbar and 
+log in button goes */
 header {
   position: fixed;
   top: 0;
@@ -26,6 +26,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* brings navbar towards the right. */
   z-index: 99;
 }
 
@@ -33,28 +34,28 @@ header {
 .navigation-bar a {
   position: relative;
   font-size: 1.4em;
-  color: aliceblue;
+  color: whitesmoke;
   text-decoration: none;
   font-weight: 500;
   margin-left: 40px;
 }
-
+/* Here is where css is applied for both navigation bar and log in button*/
 .navigation-bar .login-btn {
   width: 130px;
-  height: 50;
+  height: 50px;
   background: transparent;
-  border: 2px solid aliceblue;
+  border: 2px solid whitesmoke;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.4em;
-  color: aliceblue;
+  color: whitesmoke;
   font-weight: 500;
   margin-left: 40px;
-  transition: 1s;
+  transition: 2s;
 }
 
-/*hovering effect with light up color*/
+/*hovering effect with light up color for navbar and log in button*/
 .navigation-bar a:hover {
   background-color: blueviolet;
 }
@@ -63,41 +64,69 @@ header {
   background-color: blueviolet;
 }
 
+/* This is css for the popup modal to log in */
 .pop-up-login {
-  position: relative;
-  width: 400px;
-  height: 440px;
-  background: whitesmoke;
-  border: 2px solid #ffffff80;
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.pop-up-login .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+
+.pop-up-login.active {
+  height: 510px;
 }
 
 .pop-up-login .login-area {
   width: 100%;
   padding: 40px;
+  display: none;
 }
 
 .pop-up-login .login-area.login {
-  transition: transform 0.1s ease;
+  transition: transform 0.16s ease;
   transform: translateX(0);
 }
 
-.pop-up-login.active .login {
+.pop-up-login .login-area.active {
+  display: block;
+}
+
+.pop-up-login.active .login-area.login {
   transition: none;
   transform: translateX(-400px);
 }
 
 .pop-up-login .create-account {
   position: absolute;
+  transition: none;
   transform: translateX(400px);
 }
 
+.pop-up-login.active .login-area.create-account {
+  transition: transform 0.16s ease;
+  transform: translateX(0);
+}
+
+/* css for the x logo on the modal */
 .pop-up-login .close-btn {
   position: absolute;
   top: 0;
@@ -111,6 +140,7 @@ header {
   align-items: center;
 }
 
+/* Login title on modal */
 .login-area h2 {
   font-size: 2em;
   color: black;
@@ -125,6 +155,7 @@ header {
   margin: 30px 0;
 }
 
+/* Email and password words on modal */
 .input-area label {
   position: absolute;
   top: 50%;
@@ -134,6 +165,7 @@ header {
   color: black;
   font-weight: 500;
   pointer-events: none;
+  /* The transistion when moving pointer or hovering from email to password*/
   transition: 0.3s;
 }
 
@@ -151,8 +183,10 @@ header {
   font-size: 1em;
   color: black;
   font-weight: 600;
+  padding: 0 33px 0 5px;
 }
 
+/* css for email and password logos */
 .input-area .icon {
   position: absolute;
   right: 9px;
@@ -180,6 +214,8 @@ header {
 }
 .create-account {
   display: none;
+  color: grey;
+  position: absolute;
 }
 
 .container {
@@ -193,6 +229,7 @@ header {
   justify-content: center;
 }
 
+/* This is all css for search bar from line 220-304 */
 .search-bar {
   width: 100%;
   max-width: 700px;
@@ -230,7 +267,7 @@ header {
   cursor: pointer;
 }
 
-.container-modal {
+.container-review-btn {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -238,14 +275,44 @@ header {
   justify-content: center;
 }
 
-.modal-btn {
-  padding: 15px 65px;
+.write-review-btn {
+  padding: 10px 60px;
   background: whitesmoke;
   border: 0;
   outline: none;
   cursor: pointer;
-  font-size: 25px;
-  font-weight: 500;
-  border-radius: 35px;
+  font-size: 21px;
+  font-weight: 499;
+  border-radius: 10px;
+  transition: transform 1s;
 }
 
+.write-review-btn:active {
+  transform: scale(0.9);
+}
+
+.popup {
+  width: 399px;
+  background: whitesmoke;
+  border-radius: 6px;
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  transform: translate(-49% 49%);
+  text-align: center;
+  padding: 0 29px 59px;
+  color: whitesmoke;
+  overflow: auto;
+}
+
+.popup button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background-color: whitesmoke;
+  color: black;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
