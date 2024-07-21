@@ -21,15 +21,6 @@ closeBtn.addEventListener("click", function () {
   createAccountFormContainer.style.display = "none";
 });
 
-<<<<<<< Updated upstream
-window.addEventListener("click", function (event) {
-  if (event.target == loginPopUp) {
-    loginPopUp.style.display = "none";
-  }
-});
-=======
-
->>>>>>> Stashed changes
 
 showCreateAccountFormLink.addEventListener("click", function (event) {
   event.preventDefault();
@@ -42,8 +33,7 @@ showLoginFormLink.addEventListener("click", function (event) {
   event.preventDefault();
   createAccountFormContainer.classList.remove("active");
   loginFormContainer.classList.add("active");
-<<<<<<< Updated upstream
-=======
+
   createAccountFormContainer.style.display = "none";
->>>>>>> Stashed changes
+
 });
