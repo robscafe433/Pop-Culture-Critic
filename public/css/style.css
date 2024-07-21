@@ -218,9 +218,16 @@ header {
   position: absolute;
 }
 
-.container {
-  width: 100%;
-  min-height: 100vh;
+.review-search-container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.search-btn-container {
+  /* width: 100%; */
+  /* min-height: 100vh; */
   padding: 5%;
   background-position: center;
   background-size: cover;
@@ -232,18 +239,18 @@ header {
 /* This is all css for search bar from line 220-304 */
 .search-bar {
   width: 100%;
-  max-width: 700px;
   background: whitesmoke;
   display: flex;
   align-items: center;
   border-radius: 60px;
   padding: 10px 20px;
+  margin-right: 20px;
 }
 
 .search-bar input {
   background: whitesmoke;
   flex: 1;
-  border: 0;
+  border: none;
   outline: none;
   padding: 24px 20px;
   font-size: 20px;
@@ -267,13 +274,7 @@ header {
   cursor: pointer;
 }
 
-.container-review-btn {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .write-review-btn {
   padding: 10px 60px;
@@ -285,6 +286,12 @@ header {
   font-weight: 499;
   border-radius: 10px;
   transition: transform 1s;
+  width: 50%;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .write-review-btn:active {
