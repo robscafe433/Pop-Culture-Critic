@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
+
 <body>
     <header>
         <img class="quill" src="../images/logo1.png" alt="" width="200px">
@@ -20,19 +22,19 @@
         </nav>
     </header>
 
-   
+
     <div class="review-search-container">
         <button class="write-review-btn">Write Review</button>
         <div class="search-bar">
-            
+
             <input type="text" placeholder="Search...">
             <button type="submit" class="search-btn">
                 <i class='bx bx-search'></i>
             </button>
-            
+
         </div>
     </div>
-    
+
     <div class="pop-up-login">
         <div class="modal-content">
             <span class="close-btn"><i class='bx bx-x'></i></span>
@@ -85,6 +87,67 @@
         </div>
     </div>
 
+    <div class="container-modal">
+        <div class="modal-popup">
+            <div class="close-btn-container">
+                <span class="close-btn-two"><i class='bx bx-x'></i></span>
+            </div>
+            
+            <div id="title">
+            <h2>Thank you for your review!</h2>
+            </div>
+            <div class="second-input-area">
+            <input id="myInput" placeholder="Enter Title">
+            <input id="myInput" placeholder="Enter Author/Director">
+            </div>
+            <style>
+                .dot {
+                    height: 25px;
+                    width: 25px;
+                    background-color: #bbb;
+                    border-radius: 50%;
+                    display: inline-block;
+                }
+            </style>
+            <div type="button" id="btn-dots">
+                <input class="dot" type="radio" name="entertainment" value="Books">
+                <label>Books</label>
+                <input class="dot" type="radio" name="entertainment" value="Movies">
+                <label>Movies</label>
+                <input class="dot" type="radio" name="entertainment" value="Music">
+                <label>Music</label>
+                <input class="dot" type="radio" name="entertainment" value="Games">
+                <label>Games</label>
+            </div>
+            <div class="second-input-area">
+                <textarea id="myInput" rows="5" placeholder="Write a Review"></textarea>
+            </div>
+
+                <div type="button" id="btn-dots">
+
+                    <h4>Rating:</h4>
+                    <input class="dot" type="radio" name="rating"
+                    value="1">
+                    <label>1</label>
+                    <input class="dot" type="radio" name="rating" value="2">
+                    <label>2</label>
+                    <input class="dot" type="radio" name="rating" value="3">
+                    <label>3</label>
+                    <input class="dot" type="radio" name="rating" value="4">
+                    <label>4</label>
+                    <input class="dot" type="radio" name="rating" value="5">
+                    <label>5</label>
+                </div>
+                <div class="submit-btn"> 
+                <button type="submit" id="btn">submit</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
     <script src="../js/script.js"></script>
 </body>
+
 </html>

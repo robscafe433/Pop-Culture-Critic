@@ -74,7 +74,7 @@ header {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -85,7 +85,7 @@ header {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid purple;
   width: 80%;
   max-width: 400px;
   position: relative;
@@ -110,7 +110,7 @@ header {
   display: block;
 }
 
-.pop-up-login.active .login-area.login {
+.pop-up-login.active .login-area.login{
   transition: none;
   transform: translateX(-400px);
 }
@@ -218,7 +218,7 @@ header {
   position: absolute;
 }
 
-.review-search-container{
+.review-search-container {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -236,7 +236,6 @@ header {
   justify-content: center;
 }
 
-/* This is all css for search bar from line 220-304 */
 .search-bar {
   width: 100%;
   background: whitesmoke;
@@ -273,8 +272,6 @@ header {
   background-color: silver;
   cursor: pointer;
 }
-
-
 
 .write-review-btn {
   padding: 10px 60px;
@@ -322,4 +319,85 @@ header {
   outline: none;
   font-size: 18px;
   border-radius: 4px;
+}
+
+.container-modal {
+  /* display: none; */
+  /* position: fixed; */
+  /* z-index: 1; */
+  border: solid 2px purple;
+  background-color: gray;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 70vh;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-input-area {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  
+}
+.close-btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.container-modal .close-btn-two {
+
+  width: 30px;
+  height: 30px;
+  font-size: 2em;
+  color: black;
+
+}
+
+.second-input-area input {
+  margin: 20px 0;
+  padding: 15px;
+}
+
+#btn-dots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+#btn {
+  width: 60%;
+  height: 43px;
+  background: black;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: whitesmoke;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.submit-btn {
+  text-align: center;
+  padding: 80px;
+}
+
+.container-modal{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 35%;
+  top: 20%;
 }

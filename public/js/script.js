@@ -1,6 +1,11 @@
 const loginPopUp = document.querySelector(".pop-up-login");
 const loginBtn = document.querySelector(".login-btn");
 const closeBtn = document.querySelector(".close-btn");
+const closeBtnTwo = document.querySelector(".close-btn-two");
+const writeReviewBtn = document.querySelector('.write-review-btn');
+
+const containerModal = document.querySelector('.container-modal');
+
 const showCreateAccountFormLink = document.getElementById(
   "showCreateAccountForm"
 );
@@ -20,7 +25,10 @@ closeBtn.addEventListener("click", function () {
   loginPopUp.style.display = "none";
   createAccountFormContainer.style.display = "none";
 });
-
+closeBtnTwo.addEventListener("click", function () {
+  containerModal.style.display = "none";
+  
+});
 
 showCreateAccountFormLink.addEventListener("click", function (event) {
   event.preventDefault();
@@ -35,5 +43,9 @@ showLoginFormLink.addEventListener("click", function (event) {
   loginFormContainer.classList.add("active");
 
   createAccountFormContainer.style.display = "none";
-
 });
+
+
+writeReviewBtn.addEventListener('click', function(){
+  containerModal.style.display="block"
+})
