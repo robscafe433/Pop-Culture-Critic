@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Kill a Mockingbird</title>
+</head>
+<body>
+    <section>
+        <center>
+            <h1>To Kill a Mockingbird</h1>
+            <img src="../images/mockingbird.png" alt="To Kill a Mockingbird" width="200px">
+            <h2>Novel by Harper Lee</h2>
+        </center>
+    </section>
+
+    <h3>Carter: This book is a profound and moving novel that delves into the themes of racial injustice and moral growth. The story, set in the Deep South during the 1930s, follows young Scout Finch and her brother Jem as they navigate a world rife with prejudice and inequality. Through their father's unwavering commitment to justice, the children learn invaluable lessons about empathy and integrity. 
+        Lee's masterful storytelling and richly drawn characters make this a timeless classic. Overall, it is a poignant and thought-provoking read that leaves a lasting impact.</h3>
+    
+    <h3>Olivia: A powerful exploration of racial injustice and moral growth set in the 1930s Deep South. Through the eyes of young Scout Finch, readers witness the profound impact of prejudice and the importance of empathy, 
+        guided by her father Atticus Finch's unwavering commitment to justice. This timeless classic remains a poignant and thought-provoking read.</h3>
+
+    <h3>Daniel: A timeless classic that profoundly explores racial injustice and moral growth through the innocent eyes of Scout Finch.</h3>
+</body>
+</html>
