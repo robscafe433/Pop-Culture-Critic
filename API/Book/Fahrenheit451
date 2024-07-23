@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrenheit 451</title>
+</head>
+<body>
+    <section>
+        <center>
+            <h1>Fahrenheit 451</h1>
+            <img src="../images/fahrenheit.png" alt="Fahrenheit 451" width="200px">
+            <h2>Novel by Ray Bradbury</h2>
+        </center>
+    </section>
+
+    <h3>Arthur: This is a gripping dystopian novel that explores the dangers of censorship and the suppression of dissenting ideas. Set in a future where books are banned and "firemen" burn them, the story follows Guy Montag, a fireman who begins to question the society's anti-intellectualism. Bradbury's vivid prose and imaginative world-building highlight the importance of free thought and the consequences of a conformist society. The novel's themes remain relevant today, serving as a powerful warning against the loss of individuality and critical thinking. Overall, 
+        "Fahrenheit 451" is a compelling and thought-provoking read that challenges readers to consider the value of knowledge and the power of resistance.</h3>
+    
+    <h3>Hailey: A thought-provoking dystopian novel that explores the perils of censorship and the suppression of knowledge. Through the journey of Guy Montag, a fireman who burns books, Bradbury vividly illustrates the importance of free thought and the dangers of a conformist society. 
+        This compelling story remains strikingly relevant, challenging readers to reflect on the value of individuality and critical thinking.</h3>
+
+    <h3>Harry: A compelling dystopian novel that warns against the dangers of censorship and the suppression of free thought.</h3>
+</body>
+</html>
