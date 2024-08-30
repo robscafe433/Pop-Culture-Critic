@@ -11,10 +11,6 @@ Item.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    item_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     type: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,28 +19,52 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    isbn: {
+    item_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    collection: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    artist: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    composer: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    distributor: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    isbn: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
       validate: {
         len: [13],
       },
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     publisher: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     pagecount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     length: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+    },
+    availability: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     rating: {
       type: DataTypes.INTEGER,
@@ -52,22 +72,26 @@ Item.init(
     },
     paperback: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
     },
     edition: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     director: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     genre: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     year: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    submittedBy: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },

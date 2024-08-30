@@ -1,13 +1,15 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+// Endpoint: /api/user
+
 // Post a user
 router.post("/", async (req, res) => {
   /* req.body should look like this...
     {
       "username": "Jerry",
       "email": "tom@hotmail.com",
-      "password": "jerryMustGo",
+      "password": "jerryMustGo"
     }
   */
   try {

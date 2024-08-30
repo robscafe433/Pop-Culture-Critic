@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Item } = require("../../models");
 
+// Endpoint: /api/item
+
 router.get("/:id", async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {

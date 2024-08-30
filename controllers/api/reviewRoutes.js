@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Review } = require("../../models");
 
+// Endpoint: /api/review
+
 // Post a review
 router.post("/", async (req, res) => {
   /* req.body should look like this...
