@@ -3,7 +3,18 @@ const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-    res.render('homePage');
+    try {
+        // Check if the user is logged in
+        const loggedIn = req.session.logged_in;
+
+        // Render the homepage template with the loggedIn variable
+        res.render('homePage', {
+            loggedIn,
+        });
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // Get form (Req: Logged in)
@@ -22,9 +33,10 @@ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
+    } else {
+        res.render('login');
     }
     // Otherwise, render the 'login' template
-    res.render('login');
 });
 
 module.exports = router;
