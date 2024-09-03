@@ -1,3 +1,7 @@
+
+<!-- If the user is logged in, render the painting content -->
+{{#if loggedIn}}
+
 <section id="viewpost">
 <h2>{{post.title}}</h2>
 <p>{{post.content}}</p>
@@ -29,4 +33,9 @@
     <p>No comments yet.</p>
 {{/if}}
 </section>
+
+{{else}}
+<a href="/login">You must login first to view this painting</a>
+{{/if}}
+
 <script src="/public/js/comment.js"></script>
