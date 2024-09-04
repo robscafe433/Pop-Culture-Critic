@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { log } = require('handlebars/runtime');
 const { User } = require('../../models');
 
 // CREATE new user
@@ -13,10 +14,11 @@ router.post('/', async (req, res) => {
         // Set up sessions with a 'loggedIn' variable set to `true`
         req.session.save(() => {
             req.session.loggedIn = true;
-
+            console.log('7&&&&&&&&&&&&&&&&&', req.session.loggedIn);
             res.status(200).json(dbUserData);
         });
-        if (req.session.logged_in) {
+
+        if (req.session.loggedIn) {
             res.redirect('dashboard');
             return;
         }
@@ -28,7 +30,7 @@ router.post('/', async (req, res) => {
 
 // Get form (Req: Logged in)
 router.get('/form', async (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/dashboard');
         return;
     }
@@ -64,7 +66,10 @@ router.post('/login', async (req, res) => {
         // Once the user successfully logs in, set up the sessions variable 'loggedIn'
         req.session.save(() => {
             req.session.loggedIn = true;
-
+            console.log(
+                'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+                req.session.loggedIn
+            );
             res.status(200).json({
                 user: dbUserData,
                 message: 'You are now logged in!',

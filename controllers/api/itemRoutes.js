@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Item } = require('../../models');
+const { log } = require('handlebars/runtime');
+const { Item, Review } = require('../../models');
 
 // Endpoint: /api/item
 
@@ -14,12 +15,15 @@ router.get('/:id', async (req, res) => {
         });
 
         // Serialize data so the template can read it
-        const items = itemData.map((item) => item.get({ plain: true }));
+        // const items = itemData.map((item) => item.get({ plain: true }));
+        const itemPlainTrue = itemData.get({ plain: true });
+        console.log('TTTTTTTTTTTTTTTTTTTTTTT', req.session.loggedIn);
+        console.log('itemPlainTrue', itemPlainTrue);
 
         // Pass serialized data and session flag into template
         res.render('viewPost', {
-            items,
-            logged_in: req.session.logged_in,
+            itemPlainTrue,
+            loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         res.status(500).json(err);

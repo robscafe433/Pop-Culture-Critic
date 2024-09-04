@@ -1,17 +1,18 @@
 const router = require('express').Router();
+const { log } = require('handlebars/runtime');
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
         // Check if the user is logged in
-        const loggedIn = req.session.logged_in;
+        const loggedIn = req.session.loggedIn;
 
         // Render the homepage template with the loggedIn variable
         res.render('homePage', {
             loggedIn,
         });
-        
+        console.log('terminal`````````````````````````````````', loggedIn);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
 
 // Get form (Req: Logged in)
 router.get('/form', withAuth, async (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/dashboard');
         return;
     }
