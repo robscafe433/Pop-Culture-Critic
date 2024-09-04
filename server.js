@@ -1,11 +1,11 @@
-const path = require("path");
-const express = require("express");
-const session = require("express-session");
-const exphbs = require("express-handlebars");
-const routes = require("./controllers");
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
 
-const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,35 +14,48 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create();
 
 const sess = {
-  secret: "Super secret",
-  cookie: {
-    maxAge: 300000,
-    httpOnly: true,
-    secure: false,
-    sameSite: "strict",
-  },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
+    secret: process.env.SECRET,
+    cookie: {
+        // Stored in milliseconds
+        maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize,
+    }),
 };
 
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening at PORT: ${PORT}`));
+    app.listen(PORT, () => console.log(`Now listening at PORT: ${PORT}`));
 });
+
+//-----------------
+
+// *** *** ***
+// May need to include this boiler plate for handlebars??? MVC day-1 video time: 23:10-rs
+
+// handlebars has built in helper methods like loop/map that can be written in the handlebars page:
+//                           <!-- We implement the built-in helper, #each. This helper will iterate over dishes -->
+//                             {{#each dishes as |dish|}}
+
+// ? Set Handlebars as the default template engine. * Maybe included somewhere else???
+//app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
+
+//------------------
 
 // // Importing Express
 // const express = require("express");

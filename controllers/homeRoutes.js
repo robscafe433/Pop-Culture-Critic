@@ -1,26 +1,43 @@
-const router = require("express").Router();
-const { User } = require("../models");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const { log } = require('handlebars/runtime');
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
-// Get form (Req: Logged in)
-router.get("/form", withAuth, async (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/dashboard");
-    return;
-  }
+router.get('/', async (req, res) => {
+    try {
+        // Check if the user is logged in
+        const loggedIn = req.session.loggedIn;
 
-  res.render("login");
+        // Render the homepage template with the loggedIn variable
+        res.render('homePage', {
+            loggedIn,
+        });
+        console.log('terminal`````````````````````````````````', loggedIn);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
-// Get login (Req: Not logged in)
-router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
+// Get form (Req: Logged in)
+router.get('/form', withAuth, async (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+        return;
+    }
 
-  res.render("login");
+    res.render('login');
+});
+
+// Login route
+router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect to the homepage
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    } else {
+        res.render('login');
+    }
+    // Otherwise, render the 'login' template
 });
 
 module.exports = router;

@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--CSS-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--CSS-->
 
-    <!--Name of Website-->
-    <title>Testing</title>
-  </head>
+        <!--Name of Website-->        
+        <title>Testing</title>
+    </head>
 
-  <body>
-    <div id="root"></div>
-  </body>
+    <body>
+        <div id="root"></div>
+    </body>
 
-  <script>
-    const rootEl = document.getElementById("root");
-    const author = "Roald Dahl";
-    const title = "James and the Giant Peach";
+    <script>
+        const rootEl = document.getElementById('root');
+        const author = 'Roald Dahl';
+        const title = 'James and the Giant Peach';
 
-    async function getData() {
-      const url = `https://openlibrary.org/search.json?q=${title}&author=${author}`;
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
+        async function getData() {
+            const url = `https://openlibrary.org/search.json?q=${title}&author=${author}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const json = await response.json();
+                console.log(json);
+                render(json);
+            } catch (error) {
+                console.error(error.message);
+            }
         }
 
-        const json = await response.json();
-        console.log(json);
-        render(json);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
+        const render = (json) => {
+            const authorName = json.docs[0].author_name[0];
+            console.log('Author: ' + authorName);
+            const title = json.docs[0].title;
+            console.log('Book Title: ' + title);
+            const publishingYear = json.docs[0].first_publish_year;
+            console.log('Publishing Date: ' + publishingYear);
+            const pages = json.docs[0].number_of_pages_median;
+            console.log('Page Count: ' + pages);
+            const firstSentence = json.docs[0].first_sentence;
+            console.log('First Sentence: ' + firstSentence);
 
-    const render = (json) => {
-      const authorName = json.docs[0].author_name[0];
-      console.log("Author: " + authorName);
-      const title = json.docs[0].title;
-      console.log("Book Title: " + title);
-      const publishingYear = json.docs[0].first_publish_year;
-      console.log("Publishing Date: " + publishingYear);
-      const pages = json.docs[0].number_of_pages_median;
-      console.log("Page Count: " + pages);
-      const firstSentence = json.docs[0].first_sentence;
-      console.log("First Sentence: " + firstSentence);
+            const cardEl = document.createElement('div');
+            const nameEl = document.createElement('div');
+            const yearEl = document.createElement('div');
+            const pageEl = document.createElement('div');
 
-      const cardEl = document.createElement("div");
-      const nameEl = document.createElement("div");
-      const yearEl = document.createElement("div");
-      const pageEl = document.createElement("div");
+            nameEl.textContent = `Author: ${authorName}`;
+            yearEl.textContent = `Publishing Date: ${publishingYear}`;
+            pageEl.textContent = `Page Count: ${pages}`;
 
-      nameEl.textContent = `Author: ${authorName}`;
-      yearEl.textContent = `Publishing Date: ${publishingYear}`;
-      pageEl.textContent = `Page Count: ${pages}`;
-
-      cardEl.appendChild(nameEl);
-      cardEl.appendChild(yearEl);
-      cardEl.appendChild(pageEl);
-      rootEl.appendChild(cardEl);
-    };
-    getData();
-  </script>
+            cardEl.appendChild(nameEl);
+            cardEl.appendChild(yearEl);
+            cardEl.appendChild(pageEl);
+            rootEl.appendChild(cardEl);
+        };
+        getData();
+    </script>
 </html>

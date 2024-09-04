@@ -1,3 +1,7 @@
+
+<!-- If the user is logged in, render the painting content -->
+{{#if loggedIn}}
+
 <!-- Loop over each object in the projects array -->
 {{#each posts}}
     <div class="post">
@@ -9,3 +13,77 @@
 {{else}}
     <p>No posts found.</p>
 {{/each}}
+
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">You must login first to view this painting</a>
+{{/if}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pop Culture Critic</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to the Pop Culture Critic</h1>
+  </header>
+  <nav>
+    
+    <!-- If the user is logged in, show a logout button -->
+    {{#if loggedIn}}
+    <a href="/api/item/1">Dashboard</a>
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <!-- Otherwise, show a link to login -->
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+  <main>
+    {{!-- <div>
+      {{{body}}}
+    </div> --}}
+  </main>
+  <!-- If the user is logged in, load the JS script for when they logout -->
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
+
+
+
+{{!-- <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Pop Culture Critic</title>
+        <link rel='stylesheet' href='/public/css/style.css'>
+    </head>
+
+    <body>
+
+    </body>
+
+</html> --}}
+
+<!-- MVC day-1 , video time 22:17, start of handlebars explanation 
+
+*** *** Start of Login setup MVC - day2 - video time : 25:30 -rs START HERE 
+MVC day -2 vid time 28:55 Farish goes over signup.
+
+MVC day2 - vid time 50:15 Farish goes over sessions and how this can track if user is signed inornot.
+              we are creating "conditional-access"
+
+MVC - day 3 - video time 14:30 - Farish goes over code for authorization // review of previsouse - ***
+*** Activity # 24 - commenting so it's all works.
+
+
+-->
+

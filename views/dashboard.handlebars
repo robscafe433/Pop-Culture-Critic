@@ -1,3 +1,7 @@
+
+<!-- If the user is logged in, render the painting content -->
+{{#if loggedIn}}
+
 {{#each posts}}
     <div class="post">
         <h2>{{this.title}}</h2>
@@ -23,5 +27,9 @@
     <button type="submit" id="create-post-btn">submit</button>
   </form>
 </div>
+
+{{else}}
+<a href="/login">You must login first to view this post// Inside the dashboard.handlebars page</a>
+{{/if}}
 
 <script src="/public/js/post.js"></script>
