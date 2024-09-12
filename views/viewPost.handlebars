@@ -1,43 +1,50 @@
+<!-- Haven't gotten to yet -->
+
 <!-- If the user is logged in, render the painting content -->
 
-{{!-- *** *** Also loggedIn is showing as undefined, then why is this section showing on browser? --}}
+{{! *** *** Also loggedIn is showing as undefined, then why is this section showing on browser? }}
 {{#if loggedIn}}
 
-<section id="viewpost">
- {{!-- *** ***  Unable to see title, content, posted by, etc... --}}
-<h2>Item name: {{itemPlainTrue.item_name}}</h2>
-<p>Collection: {{itemPlainTrue.collection}}</p>
-<p>Publisher: {{itemPlainTrue.publisher}}</p>
-<p>Page Count: {{itemPlainTrue.pagecount}}</p>
-{{!-- <small>Posted by {{post.user.username}} on {{post.createdAt}}</small> --}}
+  <section id="viewpost">
+    {{! *** ***  Unable to see title, content, posted by, etc... }}
+    <h2>Item name: {{itemPlainTrue.item_name}}</h2>
+    <p>Collection: {{itemPlainTrue.collection}}</p>
+    <p>Publisher: {{itemPlainTrue.publisher}}</p>
+    <p>Page Count: {{itemPlainTrue.pagecount}}</p>
+    {{!-- <small>Posted by {{post.user.username}} on {{post.createdAt}}</small> --}}
 
-<form id="comment-form">
-    <textarea name="content" placeholder="Add a comment..." required></textarea>
-    <input type="hidden" name="postId" value="{{post.id}}">
-    <input type="hidden" name="userId" value="{{session.userId}}">
-    
-    <button type="submit" id="com-sub">Comment</button>
-</form>
+    <form id="comment-form">
+      <textarea
+        name="content"
+        placeholder="Add a comment..."
+        required
+      ></textarea>
+      <input type="hidden" name="postId" value="{{post.id}}" />
+      <input type="hidden" name="userId" value="{{session.userId}}" />
 
-{{#if post.comments}}
-    <h4>Comments:</h4>
-    <ul>
+      <button type="submit" id="com-sub">Comment</button>
+    </form>
+
+    {{#if post.comments}}
+      <h4>Comments:</h4>
+      <ul>
         {{#each post.comments}}
-            <li>
-                <strong>{{this.user.username}}:</strong> {{this.content}}
-                <br>
-                <small>Posted on {{this.createdAt}}</small>
-            </li>
+          <li>
+            <strong>{{this.user.username}}:</strong>
+            {{this.content}}
+            <br />
+            <small>Posted on {{this.createdAt}}</small>
+          </li>
         {{/each}}
-    </ul>
-{{else}}
-    <p>No comments yet.</p>
-{{/if}}
+      </ul>
+    {{else}}
+      <p>No comments yet.</p>
+    {{/if}}
 
-</section>
+  </section>
 
 {{else}}
-<p>You must <a href="/login">login</a> first to view this post.</p>
+  <p>You must <a href="/login">login</a> first to view this post.</p>
 {{/if}}
 
 <script src="/public/js/comment.js"></script>

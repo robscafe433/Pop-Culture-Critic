@@ -1,22 +1,35 @@
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
+    <meta charset="UTF-8" />
     <title>Pop Culture Critic</title>
-    <link rel='stylesheet' href='/css/jass.cs' />
-    <link rel='stylesheet' href='/public/css/style.css' />
+    <link rel="stylesheet" href="/css/jass.cs" />
+    <link rel="stylesheet" href="/public/css/style.css" />
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
-        <h1>
-          Pop Culture Critic
-        </h1>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <nav>
+          {{#if loggedIn}}
+            <a href="/homePage">Home</a>
+            <button class="no-button" id="logout">Logout</button>
+          {{else}}
+            <a href="/homePage">Home</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+          {{/if}}
+        </nav>
       </header>
-      <main class='container container-fluid mt-5'>
+      <main class="container container-fluid mt-5">
         {{{body}}}
       </main>
     </div>
+
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{else}}
+      <script src="/js/login.js"></script>
+    {{/if}}
   </body>
 
 </html>

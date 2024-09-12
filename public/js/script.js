@@ -1,10 +1,12 @@
+// Haven't gotten to yet
+
 const loginPopUp = document.querySelector(".pop-up-login");
 const loginBtn = document.querySelector(".login-btn");
 const closeBtn = document.querySelector(".close-btn");
 const closeBtnTwo = document.querySelector(".close-btn-two");
-const writeReviewBtn = document.querySelector('.write-review-btn');
+const writeReviewBtn = document.querySelector(".write-review-btn");
 
-const containerModal = document.querySelector('.container-modal');
+const containerModal = document.querySelector(".container-modal");
 
 const showCreateAccountFormLink = document.getElementById(
   "showCreateAccountForm"
@@ -27,7 +29,6 @@ closeBtn.addEventListener("click", function () {
 });
 closeBtnTwo.addEventListener("click", function () {
   containerModal.style.display = "none";
-  
 });
 
 showCreateAccountFormLink.addEventListener("click", function (event) {
@@ -45,7 +46,6 @@ showLoginFormLink.addEventListener("click", function (event) {
   createAccountFormContainer.style.display = "none";
 });
 
-
-writeReviewBtn.addEventListener('click', function(){
-  containerModal.style.display="block"
-})
+writeReviewBtn.addEventListener("click", function () {
+  containerModal.style.display = "block";
+});

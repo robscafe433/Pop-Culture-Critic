@@ -1,25 +1,46 @@
+<!-- Need to fix bug -->
 
 <!-- If the user is logged in, render the painting content -->
-{{#if loggedIn}}
+{{!-- {{#if items}}
 
-<!-- Loop over each object in the projects array -->
-{{#each posts}}
-    <div class="post">
-        <h2>{{this.title}}</h2>
-        <p>{{this.content}}</p>
-        <small>Posted by {{this.user.username}} on {{this.createdAt}}</small>
+  <!-- Loop over each object in the projects array -->
+  {{#each items}}
+    <div class="item">
+      <h2>{{this.item_name}} ({{this.year}})</h2>
+      <p>Creator:
+        {{this.author}}{{this.artist}}{{this.director}}{{this.composer}}</p>
+      <p>Submitted by {{this.submittedBy}}</p>
     </div>
-    <button><a href="/viewpost/{{this.id}}">VIEW</a></button>
-{{else}}
-    <p>No posts found.</p>
-{{/each}}
+    <button><a href="/item/{{this.id}}">See more...</a></button>
+  {{/each}}
 
-<!-- Otherwise, provide a link to login -->
 {{else}}
-<a href="/login">You must login first to view this painting</a>
-{{/if}}
+  <p>Currently empty.</p>
+  <!-- Otherwise, provide a link to login -->
+  {{else}}
+  <a href="/login">You must login first to view this painting</a>
+{{/if}} --}}
 
-<!DOCTYPE html>
+<div>
+  <div class="write-review">
+    <button id="review-btn">Write a Review</button>
+  </div>
+  <div class="search-bar">
+    <div>
+      <input
+        class="form-input"
+        type="text"
+        id="content"
+        placeholder="Search by title"
+      />
+      <button id="search-btn">Search</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/homePage.js"></script>
+
+{{!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,9 +67,9 @@
     {{/if}}
   </nav>
   <main>
-    {{!-- <div>
+    <div>
       {{{body}}}
-    </div> --}}
+    </div>
   </main>
   <!-- If the user is logged in, load the JS script for when they logout -->
   {{#if loggedIn}}
@@ -56,11 +77,9 @@
   {{/if}}
 </body>
 
-</html>
+</html> --}}
 
-
-
-{{!-- <html lang='en'>
+{{! <html lang='en'>
     <head>
         <meta charset='UTF-8'>
         <title>Pop Culture Critic</title>
@@ -71,7 +90,7 @@
 
     </body>
 
-</html> --}}
+</html> }}
 
 <!-- MVC day-1 , video time 22:17, start of handlebars explanation 
 
@@ -86,4 +105,3 @@ MVC - day 3 - video time 14:30 - Farish goes over code for authorization // revi
 
 
 -->
-
