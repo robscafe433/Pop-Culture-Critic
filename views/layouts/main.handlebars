@@ -12,11 +12,10 @@
         <nav>
           {{#if loggedIn}}
             <a href="/homePage">Home</a>
-            <button class="no-button" id="logout">Logout</button>
+            <a href="/" id="logout">Logout</a>
           {{else}}
             <a href="/homePage">Home</a>
             <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
           {{/if}}
         </nav>
       </header>

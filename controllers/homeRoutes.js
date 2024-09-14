@@ -21,10 +21,11 @@ const withAuth = require("../utils/auth");
 // Get form (Req: Logged in)
 router.get("/form", withAuth, async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/dashboard");
+    res.render("form", { loggedIn: req.session.loggedIn });
     return;
   }
 
+  alert("Login or sign up first.");
   res.render("login");
 });
 
@@ -37,30 +38,6 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
-  // Otherwise, render the 'login' template
-});
-
-// Signup route
-router.get("/signup", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/homePage");
-    return;
-  }
-
-  res.render("signup");
-  // Otherwise, render the 'login' template
-});
-
-// new review route
-router.get("/form", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/form");
-    return;
-  }
-
-  alert("Login or sign up first.");
   // Otherwise, render the 'login' template
 });
 
@@ -79,7 +56,7 @@ router.get("/*", async (req, res) => {
     const items = itemData.map((review) => review.get({ plain: true }));
 
     // Pass serialized data into Handlebars.js template
-    res.render("homePage", { items, loggedIn: req.session.loggedIn });
+    res.render("homePage", { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }

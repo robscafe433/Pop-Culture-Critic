@@ -1,32 +1,142 @@
 <!-- Need to finish -->
 
 <div class="row justify-space-between-md"></div>
-  <div class="login-card">
+  <div class="review-card">
     <h2 class="page-title">Write a Review</h2>
-    <form class="form login-form">
+    <form class="form review-form">
       <div class="form-group">
-        <label for="email-login">Email:</label>
+        <h3>Title:</h3>
         <input
           class="form-input"
           type="text"
-          placeholder="Enter your email"
-          id="email-login"
+          placeholder="Enter Title"
+          id="rev-title"
         />
       </div>
+
       <div class="form-group">
-        <label for="password-login">Password:</label>
+        <h3>Creator:</h3>
         <input
           class="form-input"
-          type="password"
-          placeholder="Enter your password"
-          id="password-login"
+          type="text"
+          placeholder="Enter name(s)"
+          id="rev-creator"
         />
       </div>
+
+      <div class="radio-group">
+        <h3>Choose a medium:</h3>
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rev-book"
+            name="item-type"
+          />
+          <label for="rev-book">Book</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rev-movie"
+            name="item-type"
+          />
+          <label for="rev-movie">Movie</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rev-music"
+            name="item-type"
+          />
+          <label for="rev-music">Music</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rev-game"
+            name="item-type"
+          />
+          <label for="rev-game">Game</label>
+        </div>
+
+      </div>
+
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+        <h3>Review:</h3>
+        <input
+          class="form-input"
+          type="text"
+          placeholder="Write your review here!"
+          id="rev-review"
+        />
+      </div>
+
+      <div class="radio-group">
+        <h3>Rating:</h3>
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-one"
+            name="rating"
+          />
+          <label for="rating-one">1</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-two"
+            name="rating"
+          />
+          <label for="rating-two">2</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-three"
+            name="rating"
+          />
+          <label for="rating-three">3</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-four"
+            name="rating"
+          />
+          <label for="rating-four">4</label>
+        </div>
+
+        <div class="form-group"></div>
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-five"
+            name="rating"
+          />
+          <label for="rating-five">5</label>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
       </div>
     </form>
   </div>
 </div>
 
-<script href="form.js"></script>
+<script href="/js/form.js"></script>

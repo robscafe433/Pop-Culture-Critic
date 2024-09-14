@@ -28,16 +28,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get form (Req: Logged in)
-router.get("/form", async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/dashboard");
-    return;
-  }
-
-  res.render("login");
-});
-
 // Login
 router.post("/login", async (req, res) => {
   try {

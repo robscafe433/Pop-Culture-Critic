@@ -4,12 +4,12 @@ const { Item, Review } = require("../../models");
 
 // Endpoint: /api/item
 
-router.get("/:title", async (req, res) => {
+router.get("/viewItem/:title", async (req, res) => {
   try {
     const itemData = await Item.findOne({ where: { title: req.body.title } });
 
     if (itemData) {
-      res.redirect(`/${itemData.id}`);
+      res.redirect(`/viewItem/${itemData.id}`);
       return;
     }
 
@@ -19,7 +19,7 @@ router.get("/:title", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/viewItem/:id", async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
       include: [
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
     console.log("itemPlainTrue", itemPlainTrue);
 
     // Pass serialized data and session flag into template
-    res.render("viewPost", {
+    res.render("viewItem", {
       itemPlainTrue,
       loggedIn: req.session.loggedIn,
     });
