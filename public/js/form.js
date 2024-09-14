@@ -9,19 +9,17 @@ const reviewFormHandler = async (event) => {
   const review = document.querySelector("#rev-review").value.trim();
   const rating = document.querySelector("rating").value.trim();
 
-  console.log(title);
-
   if (title == "") {
     alert("Please enter the title of the work you wish to review.");
   } else if (!creator) {
     alert(
       "Please enter the creator of the work (i.e., author, director, artist)."
     );
-  } else if (!medium) {
+  } else if (medium == "") {
     alert("Please select the medium type.");
-  } else if (!review) {
+  } else if (review == "") {
     alert("Please write a review.");
-  } else if (!rating) {
+  } else if (rating == "") {
     alert("Please provide a rating.");
   } else if (title && creator && medium && review && rating) {
     const response = await fetch("/api/review ", {

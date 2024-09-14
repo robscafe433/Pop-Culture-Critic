@@ -4,13 +4,12 @@ const { Item, Review } = require("../../models");
 
 // Endpoint: /api/item
 
-router.get("/viewItem/:title", async (req, res) => {
+router.get("/:title", async (req, res) => {
   try {
     const itemData = await Item.findOne({ where: { title: req.body.title } });
 
     if (itemData) {
-      res.redirect(`/viewItem/${itemData.id}`);
-      return;
+      return itemData.id;
     }
 
     res.render("error");
@@ -19,12 +18,23 @@ router.get("/viewItem/:title", async (req, res) => {
   }
 });
 
-router.get("/viewItem/:id", async (req, res) => {
+router.get("/view/:id", async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
+      attributes: [
+        "type",
+        "item_name",
+        "artist",
+        "composer",
+        "author",
+        "rating",
+        "director",
+        "submittedBy",
+      ],
       include: [
         {
           model: Review,
+          attributes: ["review"],
         },
       ],
     });

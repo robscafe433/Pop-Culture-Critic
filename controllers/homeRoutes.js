@@ -41,6 +41,13 @@ router.get("/login", (req, res) => {
   // Otherwise, render the 'login' template
 });
 
+// view item route
+router.get("/viewItem", (req, res) => {
+  // redirect to the homepage
+  res.redirect("/homePage");
+  return;
+});
+
 router.get("/*", async (req, res) => {
   try {
     // Get all posts, sorted by name
