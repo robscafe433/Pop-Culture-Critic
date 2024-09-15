@@ -42,10 +42,35 @@ router.get("/login", (req, res) => {
 });
 
 // view item route
-router.get("/viewItem", (req, res) => {
-  // redirect to the homepage
-  res.redirect("/");
-  return;
+router.get("/view/:title", async (req, res) => {
+  try {
+    const itemData = await Item.findOne({
+      where: { item_name: req.params.title },
+      attributes: [
+        "type",
+        "item_name",
+        "artist",
+        "composer",
+        "author",
+        "rating",
+        "director",
+        "submittedBy",
+      ],
+      include: [
+        {
+          model: Review,
+          attributes: ["review"],
+        },
+      ],
+    });
+
+    res.render("view", {
+      itemPlainTrue: itemData,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/*", async (req, res) => {

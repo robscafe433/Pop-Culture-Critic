@@ -14,36 +14,43 @@ const searchBarHandler = async (event) => {
   const title = document.querySelector("#search-title").value.trim();
 
   if (title) {
-    await fetch(`/api/item/${title}`, {
+    const response = await fetch(`/api/item/${title}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
 
-    // if (response.ok) {
-    //   location.render("viewItem", { loggedIn });
-    //   // await fetch(`/api/item/view/${response}`, {
-    //   //   method: "GET",
-    //   //   headers: { "Content-Type": "application/json" },
-    //   // });
-    //   return;
-    //   // if (nextResponse.ok) {
-    //   //   document.location.redirect("/viewItem");
-    //   // } else {
-    //   //   alert("Error finding title");
-    //   //   document.location.redirect("/");
-    //   // }
-    // } else {
-    //   alert("Could not find title");
-    //   document.location.redirect("/");
-    // }
+    if (response.ok) {
+      document.location.replace(`/view/${title}`);
+    }
+
+    //   if (response.ok) {
+    //     document.location.replace("/viewItem", {
+    //       response,
+    //       loggedIn: req.session.loggedIn,
+    //     });
+    //     // await fetch(`/api/item/view/${response}`, {
+    //     //   method: "GET",
+    //     //   headers: { "Content-Type": "application/json" },
+    //     // });
+    //     //   return;
+    //     //   // if (nextResponse.ok) {
+    //     //   //   document.location.redirect("/viewItem");
+    //     //   // } else {
+    //     //   //   alert("Error finding title");
+    //     //   //   document.location.redirect("/");
+    //     //   // }
+    //     // } else {
+    //     //   alert("Could not find title");
+    //     //   document.location.redirect("/");
+    //   }
   } else {
     alert("Please enter a title.");
   }
 };
 
-document
-  .querySelector("#review-btn")
-  .addEventListener("click", writeReviewHandler);
+// document
+//   .querySelector(".review-btn")
+//   .addEventListener("click", writeReviewHandler);
 
 document
   .querySelector(".search-form")

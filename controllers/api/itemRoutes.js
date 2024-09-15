@@ -26,14 +26,15 @@ router.get("/:title", async (req, res) => {
       ],
     });
 
-    const itemPlainTrue = itemData.get({ plain: true });
+    res.status(200).json(itemData);
 
-    res.render("viewItem", {
-      itemPlainTrue,
-      loggedIn: req.session.loggedIn,
-    });
+    // const itemPlainTrue = itemData.get({ plain: true });
+
+    // res.render("viewItem", {
+    //   itemPlainTrue,
+    //   loggedIn: req.session.loggedIn,
+    // });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
