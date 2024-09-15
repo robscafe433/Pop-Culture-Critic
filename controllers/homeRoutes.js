@@ -33,7 +33,7 @@ router.get("/form", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
-    res.redirect("/homePage");
+    res.redirect("/");
     return;
   }
 
@@ -44,7 +44,7 @@ router.get("/login", (req, res) => {
 // view item route
 router.get("/viewItem", (req, res) => {
   // redirect to the homepage
-  res.redirect("/homePage");
+  res.redirect("/");
   return;
 });
 
