@@ -8,9 +8,12 @@ const reviewFormHandler = async (event) => {
   const medium = document.querySelector("item-type").value.trim();
   const review = document.querySelector("#rev-review").value.trim();
   const rating = document.querySelector("rating").value.trim();
+  const year = document.querySelector("year").value.trim();
 
   if (title == "") {
     alert("Please enter the title of the work you wish to review.");
+  } else if (!year) {
+    alert("Please enter the year of the work.");
   } else if (!creator) {
     alert(
       "Please enter the creator of the work (i.e., author, director, artist)."

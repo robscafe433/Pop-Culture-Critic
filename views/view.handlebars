@@ -7,10 +7,9 @@
 
   <section id="viewItem">
     {{! *** ***  Unable to see title, content, posted by, etc... }}
-    <h2>Item name: {{itemPlainTrue.item_name}}</h2>
-    <p>Collection: {{itemPlainTrue.collection}}</p>
-    <p>Publisher: {{itemPlainTrue.publisher}}</p>
-    <p>Page Count: {{itemPlainTrue.pagecount}}</p>
+    <h2>{{item_name}} ({{year}})</h2>
+    <p>By {{artist}}{{composer}}{{author}}{{director}}</p>
+    <p>Posted by: {{submittedBy}}</p>
     {{!-- <small>Posted by {{post.user.username}} on {{post.createdAt}}</small> --}}
 
     <form id="comment-form">
@@ -19,21 +18,21 @@
         placeholder="Add a comment..."
         required
       ></textarea>
-      <input type="hidden" name="postId" value="{{post.id}}" />
+      <input type="hidden" name="itemId" value="{{id}}" />
       <input type="hidden" name="userId" value="{{session.userId}}" />
+      <p>User: {{user}}</p>
 
       <button type="submit" id="com-sub">Comment</button>
     </form>
 
-    {{#if post.comments}}
+    {{#if reviews}}
       <h4>Comments:</h4>
       <ul>
-        {{#each post.comments}}
+        {{#each reviews}}
           <li>
-            <strong>{{this.user.username}}:</strong>
-            {{this.content}}
+            {{review}}
             <br />
-            <small>Posted on {{this.createdAt}}</small>
+            <small>( {{rating}}/5 stars )</small>
           </li>
         {{/each}}
       </ul>
@@ -47,4 +46,4 @@
   <p>You must <a href="/login">login</a> first to view this post.</p>
 {{/if}}
 
-<script src="/public/js/comment.js"></script>
+<script src="/js/comment.js"></script>

@@ -66,10 +66,6 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     paperback: {
       type: DataTypes.BOOLEAN,
       allowNull: true,

@@ -47,25 +47,28 @@ router.get("/view/:title", async (req, res) => {
     const itemData = await Item.findOne({
       where: { item_name: req.params.title },
       attributes: [
+        "id",
         "type",
         "item_name",
         "artist",
         "composer",
         "author",
-        "rating",
         "director",
+        "year",
         "submittedBy",
       ],
       include: [
         {
           model: Review,
-          attributes: ["review"],
+          attributes: ["review", "rating"],
         },
       ],
     });
 
+    const theItem = itemData.get({ plain: true });
+
     res.render("view", {
-      itemPlainTrue: itemData,
+      ...theItem,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {

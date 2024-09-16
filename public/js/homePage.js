@@ -14,7 +14,7 @@ const searchBarHandler = async (event) => {
   const title = document.querySelector("#search-title").value.trim();
 
   if (title) {
-    const response = await fetch(`/api/item/${title}`, {
+    const response = await fetch(`/view/${title}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });

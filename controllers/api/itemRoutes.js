@@ -14,14 +14,14 @@ router.get("/:title", async (req, res) => {
         "artist",
         "composer",
         "author",
-        "rating",
         "director",
+        "year",
         "submittedBy",
       ],
       include: [
         {
           model: Review,
-          attributes: ["review"],
+          attributes: ["review", "rating"],
         },
       ],
     });
