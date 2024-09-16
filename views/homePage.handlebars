@@ -1,5 +1,3 @@
-<!-- Need to fix bug -->
-
 <!-- If the user is logged in, render the painting content -->
 {{!-- {{#if items}}
 
@@ -23,18 +21,20 @@
 
 <div>
   <div class="write-review">
-    <button id="review-btn">Write a Review</button>
+    <a href="/form">Write a Review</a>
   </div>
-  <div class="search-bar">
-    <div>
-      <input
-        class="form-input"
-        type="text"
-        id="content"
-        placeholder="Search by title"
-      />
-      <button id="search-btn">Search</button>
-    </div>
+  <div class="search-section">
+    <form class="search-form">
+      <div class="form-group">
+        <input
+          class="form-input"
+          type="search"
+          id="search-title"
+          placeholder="Search by title"
+        />
+        <button id="search-btn" type="submit">Search</button>
+      </div>
+    </form>
   </div>
 </div>
 

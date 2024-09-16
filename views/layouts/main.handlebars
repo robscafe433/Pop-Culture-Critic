@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <title>Pop Culture Critic</title>
     <link rel="stylesheet" href="/css/jass.cs" />
-    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
   </head>
 
   <body>
@@ -12,11 +12,10 @@
         <nav>
           {{#if loggedIn}}
             <a href="/homePage">Home</a>
-            <button class="no-button" id="logout">Logout</button>
+            <a href="/" id="logout">Logout</a>
           {{else}}
             <a href="/homePage">Home</a>
             <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
           {{/if}}
         </nav>
       </header>

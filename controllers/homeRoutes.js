@@ -21,10 +21,11 @@ const withAuth = require("../utils/auth");
 // Get form (Req: Logged in)
 router.get("/form", withAuth, async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/dashboard");
+    res.render("form", { loggedIn: req.session.loggedIn });
     return;
   }
 
+  alert("Login or sign up first.");
   res.render("login");
 });
 
@@ -32,7 +33,7 @@ router.get("/form", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
-    res.redirect("/homePage");
+    res.redirect("/");
     return;
   }
 
@@ -40,28 +41,42 @@ router.get("/login", (req, res) => {
   // Otherwise, render the 'login' template
 });
 
-// Signup route
-router.get("/signup", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/homePage");
-    return;
+// view item route
+router.get("/view/:title", async (req, res) => {
+  try {
+    const itemData = await Item.findOne({
+      where: { item_name: req.params.title },
+      attributes: [
+        "id",
+        "type",
+        "item_name",
+        "artist",
+        "composer",
+        "author",
+        "director",
+        "year",
+        "submittedBy",
+      ],
+      include: [
+        {
+          model: Review,
+          attributes: ["review", "rating"],
+        },
+      ],
+    });
+
+    const theItem = itemData.get({ plain: true });
+    if (theItem) {
+      res.render("view", {
+        ...theItem,
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      res.render("form", { loggedIn: req.session.loggedIn });
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
-
-  res.render("signup");
-  // Otherwise, render the 'login' template
-});
-
-// new review route
-router.get("/form", (req, res) => {
-  // If the user is already logged in, redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect("/form");
-    return;
-  }
-
-  alert("Login or sign up first.");
-  // Otherwise, render the 'login' template
 });
 
 router.get("/*", async (req, res) => {
@@ -79,7 +94,7 @@ router.get("/*", async (req, res) => {
     const items = itemData.map((review) => review.get({ plain: true }));
 
     // Pass serialized data into Handlebars.js template
-    res.render("homePage", { items, loggedIn: req.session.loggedIn });
+    res.render("homePage", { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
