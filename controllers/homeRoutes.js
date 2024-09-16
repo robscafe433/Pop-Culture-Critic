@@ -66,11 +66,14 @@ router.get("/view/:title", async (req, res) => {
     });
 
     const theItem = itemData.get({ plain: true });
-
-    res.render("view", {
-      ...theItem,
-      loggedIn: req.session.loggedIn,
-    });
+    if (theItem) {
+      res.render("view", {
+        ...theItem,
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      res.render("form", { loggedIn: req.session.loggedIn });
+    }
   } catch (err) {
     res.status(500).json(err);
   }

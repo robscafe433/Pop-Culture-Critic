@@ -21,6 +21,9 @@ const searchBarHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace(`/view/${title}`);
+    } else {
+      alert("Reviews for this title doesn't exist. Add a new review!");
+      document.location.replace(`/form`);
     }
 
     //   if (response.ok) {
