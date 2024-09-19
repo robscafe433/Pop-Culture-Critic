@@ -43,20 +43,12 @@ router.get("/login", (req, res) => {
 
 // view item route
 router.get("/view/:title", async (req, res) => {
+  const title = req.params.title;
+  console.log(title);
   try {
     const itemData = await Item.findOne({
       where: { item_name: req.params.title },
-      attributes: [
-        "id",
-        "type",
-        "item_name",
-        "artist",
-        "composer",
-        "author",
-        "director",
-        "year",
-        "submittedBy",
-      ],
+      attributes: ["id", "type", "item_name", "creator", "year", "submittedBy"],
       include: [
         {
           model: Review,
@@ -72,7 +64,7 @@ router.get("/view/:title", async (req, res) => {
         loggedIn: req.session.loggedIn,
       });
     } else {
-      res.render("form", { loggedIn: req.session.loggedIn });
+      res.render("/form", { loggedIn: req.session.loggedIn });
     }
   } catch (err) {
     res.status(500).json(err);
@@ -81,17 +73,17 @@ router.get("/view/:title", async (req, res) => {
 
 router.get("/*", async (req, res) => {
   try {
-    // Get all posts, sorted by name
-    const itemData = await Item.findAll({
-      include: [
-        {
-          model: Review,
-        },
-      ],
-    });
+    // // Get all posts, sorted by name
+    // const itemData = await Item.findAll({
+    //   include: [
+    //     {
+    //       model: Review,
+    //     },
+    //   ],
+    // });
 
-    // Serialize data
-    const items = itemData.map((review) => review.get({ plain: true }));
+    // // Serialize data
+    // const items = itemData.map((review) => review.get({ plain: true }));
 
     // Pass serialized data into Handlebars.js template
     res.render("homePage", { loggedIn: req.session.loggedIn });

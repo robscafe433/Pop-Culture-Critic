@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
   /* req.body should look like this...
     {
       "review": "I didn't really like it that much.",
+      "rating": 3
       "item_id": 1,
     }
   */

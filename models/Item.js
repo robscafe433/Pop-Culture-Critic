@@ -17,7 +17,7 @@ Item.init(
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     item_name: {
       type: DataTypes.STRING,
@@ -27,11 +27,7 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    artist: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    composer: {
+    creator: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -45,10 +41,6 @@ Item.init(
       validate: {
         len: [13],
       },
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     publisher: {
       type: DataTypes.STRING,
@@ -71,10 +63,6 @@ Item.init(
       allowNull: true,
     },
     edition: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    director: {
       type: DataTypes.STRING,
       allowNull: true,
     },
