@@ -8,16 +8,7 @@ router.get("/:title", async (req, res) => {
   try {
     const itemData = await Item.findOne({
       where: { item_name: req.params.title },
-      attributes: [
-        "type",
-        "item_name",
-        "artist",
-        "composer",
-        "author",
-        "director",
-        "year",
-        "submittedBy",
-      ],
+      attributes: ["id", "type", "item_name", "creator", "year", "submittedBy"],
       include: [
         {
           model: Review,
@@ -36,6 +27,28 @@ router.get("/:title", async (req, res) => {
     // });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post("/", async (req, res) => {
+  /* req.body should look like this...
+    {
+      "item_name": "A Guide to Sanity",
+      "year": 1998,
+      "creator": "Felipe",
+      "type": "Book"
+    }
+  */
+
+  try {
+    console.log(req.session);
+    const itemData = await Item.create(req.body, {
+      submittedBy: req.session.username,
+    });
+
+    res.status(200).json(itemData);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
