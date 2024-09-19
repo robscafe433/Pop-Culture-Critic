@@ -73,17 +73,17 @@ router.get("/view/:title", async (req, res) => {
 
 router.get("/*", async (req, res) => {
   try {
-    // Get all posts, sorted by name
-    const itemData = await Item.findAll({
-      include: [
-        {
-          model: Review,
-        },
-      ],
-    });
+    // // Get all posts, sorted by name
+    // const itemData = await Item.findAll({
+    //   include: [
+    //     {
+    //       model: Review,
+    //     },
+    //   ],
+    // });
 
-    // Serialize data
-    const items = itemData.map((review) => review.get({ plain: true }));
+    // // Serialize data
+    // const items = itemData.map((review) => review.get({ plain: true }));
 
     // Pass serialized data into Handlebars.js template
     res.render("homePage", { loggedIn: req.session.loggedIn });

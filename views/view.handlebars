@@ -6,22 +6,77 @@
 {{#if loggedIn}}
 
   <section id="viewItem">
-    {{! *** ***  Unable to see title, content, posted by, etc... }}
     <h2>{{item_name}} ({{year}})</h2>
     <p>By {{creator}}</p>
     <p>Posted by: {{submittedBy}}</p>
-    {{!-- <small>Posted by {{post.user.username}} on {{post.createdAt}}</small> --}}
 
-    <form id="review-form">
-      <textarea
-        name="content"
-        placeholder="Leave a review..."
-        required
-      ></textarea>
-      <input type="hidden" name="itemId" value="{{id}}" />
-      <input type="hidden" name="userId" value="{{session.userId}}" />
-      <p>User: {{user}}</p>
+    <form class="review-form">
+      <div><textarea
+          name="content"
+          placeholder="Leave a review..."
+          required
+        ></textarea>
+        <input type="hidden" name="itemId" value="{{id}}" />
+      </div>
 
+      <div class="radio-group">
+        <h3>Rating:</h3>
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-one"
+            value="1"
+            name="rating"
+          />
+          <label for="rating-one">1</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-two"
+            value="2"
+            name="rating"
+          />
+          <label for="rating-two">2</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-three"
+            value="3"
+            name="rating"
+          />
+          <label for="rating-three">3</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-four"
+            value="4"
+            name="rating"
+          />
+          <label for="rating-four">4</label>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-input"
+            type="radio"
+            id="rating-five"
+            value="5"
+            name="rating"
+          />
+          <label for="rating-five">5</label>
+        </div>
+
+      </div>
       <button type="submit" id="rev-sub">Submit</button>
     </form>
 
@@ -42,8 +97,7 @@
 
   </section>
 
+  <script src="/js/comment.js"></script>
 {{else}}
   <p>You must <a href="/login">login</a> first to view this post.</p>
 {{/if}}
-
-<script src="/js/comment.js"></script>

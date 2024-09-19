@@ -70,7 +70,6 @@ const reviewFormHandler = async (event) => {
               year: year,
               creator: creator,
               type: type,
-              submittedBy: "Phil",
             }),
             headers: { "Content-Type": "application/json" },
           });
