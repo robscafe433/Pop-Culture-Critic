@@ -1,159 +1,134 @@
 <div class="row justify-space-between-md"></div>
-  <div class="review-card">
-    <h2 class="page-title">Write a Review</h2>
-    <form class="form review-form">
-      <div class="form-group">
-        <h3>Title:</h3>
+<div class="review-card">
+  <h2 class="page-title">Write a Review</h2>
+  <form class="form review-form">
+    <h3>Title:</h3>
+    <input
+      class="form-input"
+      type="text"
+      placeholder="Enter title"
+      id="rev-title"
+    />
+
+    <h3>Year:</h3>
+    <input
+      class="form-input"
+      type="number"
+      placeholder="Enter release year"
+      id="year"
+    />
+
+    <h3>Creator:</h3>
+    <input
+      class="form-input"
+      type="text"
+      placeholder="Enter creator's name."
+      id="rev-creator"
+    />
+
+    <h3>Choose a medium:</h3>
+    <div class="radio-group">
+      <label for="rev-book">
         <input
           class="form-input"
-          type="text"
-          placeholder="Enter title"
-          id="rev-title"
+          type="radio"
+          id="rev-book"
+          value="Book"
+          name="item-type"
         />
-      </div>
-
-      <div class="form-group">
-        <h3>Year:</h3>
+        Book</label>
+      <label for="rev-video">
         <input
           class="form-input"
-          type="number"
-          placeholder="Enter release year"
-          id="year"
+          type="radio"
+          id="rev-video"
+          value="Video"
+          name="item-type"
         />
-      </div>
+        Movie</label>
 
-      <div class="form-group">
-        <h3>Creator:</h3>
+      <label for="rev-music">
         <input
           class="form-input"
-          type="text"
-          placeholder="Enter creator's name."
-          id="rev-creator"
+          type="radio"
+          id="rev-music"
+          value="Music"
+          name="item-type"
         />
-      </div>
-
-      <div class="radio-group">
-        <h3>Choose a medium:</h3>
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rev-book"
-            value="Book"
-            name="item-type"
-          />
-          <label for="rev-book">Book</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rev-video"
-            value="Video"
-            name="item-type"
-          />
-          <label for="rev-video">Movie</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rev-music"
-            value="Music"
-            name="item-type"
-          />
-          <label for="rev-music">Music</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rev-game"
-            value="Game"
-            name="item-type"
-          />
-          <label for="rev-game">Game</label>
-        </div>
-
-      </div>
-
-      <div class="form-group">
-        <h3>Review:</h3>
+        Music</label>
+      <label for="rev-game">
         <input
           class="form-input"
-          type="text"
-          placeholder="Write your review here!"
-          id="rev-review"
+          type="radio"
+          id="rev-game"
+          value="Game"
+          name="item-type"
         />
-      </div>
+        Game</label>
+    </div>
 
-      <div class="radio-group">
-        <h3>Rating:</h3>
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-one"
-            value="1"
-            name="rating"
-          />
-          <label for="rating-one">1</label>
-        </div>
+    <h3>Review:</h3>
+    <textarea
+      class="form-input"
+      type="text"
+      placeholder="Write your review here!"
+      id="rev-review"
+    ></textarea>
 
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-two"
-            value="2"
-            name="rating"
-          />
-          <label for="rating-two">2</label>
-        </div>
+    <h3>Rating:</h3>
+    <div class="radio-group">
+      <label for="rating-one">
+        <input
+          class="form-input"
+          type="radio"
+          id="rating-one"
+          value="1"
+          name="rating"
+        />
+        1</label>
 
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-three"
-            value="3"
-            name="rating"
-          />
-          <label for="rating-three">3</label>
-        </div>
+      <label for="rating-two">
+        <input
+          class="form-input"
+          type="radio"
+          id="rating-two"
+          value="2"
+          name="rating"
+        />
+        2</label>
+      <label for="rating-three">
+        <input
+          class="form-input"
+          type="radio"
+          id="rating-three"
+          value="3"
+          name="rating"
+        />
+        3</label>
+      <label for="rating-four">
+        <input
+          class="form-input"
+          type="radio"
+          id="rating-four"
+          value="4"
+          name="rating"
+        />
+        4</label>
 
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-four"
-            value="4"
-            name="rating"
-          />
-          <label for="rating-four">4</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-five"
-            value="5"
-            name="rating"
-          />
-          <label for="rating-five">5</label>
-        </div>
-
-      </div>
-
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
+      <label for="rating-five">
+        <input
+          class="form-input"
+          type="radio"
+          id="rating-five"
+          value="5"
+          name="rating"
+        />
+        5</label>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
 </div>
 
 <script src="/js/form.js"></script>
