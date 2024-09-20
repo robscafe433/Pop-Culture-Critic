@@ -6,9 +6,11 @@
 {{#if loggedIn}}
 
   <section id="viewItem">
-    <h2>{{item_name}} ({{year}})</h2>
-    <p>By {{creator}}</p>
-    <p>Posted by: {{submittedBy}}</p>
+    <div class="main-item">
+      <h2>{{item_name}} ({{year}})</h2>
+      <p>By {{creator}}</p>
+      <small>Posted by: {{submittedBy}}</small>
+    </div>
 
     <form class="review-form">
       <div><textarea
@@ -18,64 +20,55 @@
         ></textarea>
         <input type="hidden" name="itemId" value="{{id}}" />
       </div>
-
-      <div class="radio-group">
+      <div class="rating-group">
         <h3>Rating:</h3>
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-one"
-            value="1"
-            name="rating"
-          />
-          <label for="rating-one">1</label>
+        <div class="radio-group">
+          <label for="rating-one">
+            <input
+              class="form-input"
+              type="radio"
+              id="rating-one"
+              value="1"
+              name="rating"
+            />1
+          </label>
+          <label for="rating-two">
+            <input
+              class="form-input"
+              type="radio"
+              id="rating-two"
+              value="2"
+              name="rating"
+            />2
+          </label>
+          <label for="rating-three">
+            <input
+              class="form-input"
+              type="radio"
+              id="rating-three"
+              value="3"
+              name="rating"
+            />3
+          </label>
+          <label for="rating-four">
+            <input
+              class="form-input"
+              type="radio"
+              id="rating-four"
+              value="4"
+              name="rating"
+            />4
+          </label>
+          <label for="rating-five">
+            <input
+              class="form-input"
+              type="radio"
+              id="rating-five"
+              value="5"
+              name="rating"
+            />5
+          </label>
         </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-two"
-            value="2"
-            name="rating"
-          />
-          <label for="rating-two">2</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-three"
-            value="3"
-            name="rating"
-          />
-          <label for="rating-three">3</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-four"
-            value="4"
-            name="rating"
-          />
-          <label for="rating-four">4</label>
-        </div>
-
-        <div class="form-group">
-          <input
-            class="form-input"
-            type="radio"
-            id="rating-five"
-            value="5"
-            name="rating"
-          />
-          <label for="rating-five">5</label>
-        </div>
-
       </div>
       <button type="submit" id="rev-sub">Submit</button>
     </form>
