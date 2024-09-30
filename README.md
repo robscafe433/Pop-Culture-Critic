@@ -22,19 +22,19 @@ _OR_ Copy this link to paste it into a browser.
 https://pop-culture-critic.onrender.com/
 ```
 
-![PCC HomePage](p2-home.png)
+![PCC HomePage](public/images/p2-home.png)
 
 The above page will be the starting homepage. The nav bar at the top contains the buttons for returning home and logging in/logging out (depending on your login status).
 
-![PCC Login Page](p2-login.png)
+![PCC Login Page](public/images/p2-login.png)
 
 If you are not logged in and wish to log in, press the Login in button to progress to the login screen where you will be prompted to enter information to either log in or sign up.
 
-![PCC Review Form Page](p2-review-form.png)
+![PCC Review Form Page](public/images/p2-review-form.png)
 
 If you are already logged in and wish to write a review instead, clicking on 'Write a Review' will lead you to the review form. It will either add your review to an item that matches the title inputted, or create a new item and attach the review there if that title doesn't exist in our database.
 
-![PCC view of a single item with its reviews](p2-view.png)
+![PCC view of a single item with its reviews](public/images/p2-view.png)
 
 When you search for a title or submitting a review form, you will be taken to a page that displays information related to the item, and any existing reviews will be listed underneath. However, you must be logged in to view this page. Here, there is another form to write a review.
 
